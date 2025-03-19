@@ -1,0 +1,64 @@
+@import "@/styles/defaults";
+
+.auth_form {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  &_body > h2 {
+    text-align: center;
+    color: $c-G-1;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+
+  .fields_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 24px;
+
+    .auth_input {
+      width: 100%;
+    }
+  }
+
+  .submit_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+
+    .reset_link {
+      color: $c-Primary-3;
+      font-size: 18px;
+      margin: 0 auto;
+    }
+
+    & > button {
+      width: 100%;
+    }
+  }
+
+  .registration_wrapper {
+    border: 2px solid $c-Primary-2;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    & > h3 {
+      color: $c-G-1;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 auto;
+    }
+
+    & > button {
+      width: 100%;
+    }
+  }
+}

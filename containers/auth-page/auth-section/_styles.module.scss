@@ -1,0 +1,31 @@
+@import "@/styles/defaults";
+
+.auth_section {
+  width: 100%;
+  height: fit-content;
+  padding-top: 20px;
+
+  .auth_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+    width: 100%;
+    height: 100%;
+
+    &__img_wrapper {
+      border-radius: 2.4rem;
+      height: 71.2rem;
+      width: 100%;
+      background: $c-G-1;
+    }
+
+    &__form_wrapper {
+      border-radius: 2.4rem;
+      height: 71.2rem;
+      width: 100%;
+      border: 2px solid $c-G-2;
+      background: $c-G-3;
+      padding: 3.6rem 6rem;
+    }
+  }
+}

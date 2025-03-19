@@ -1,0 +1,119 @@
+@use '@/styles/defaults';
+
+.card {
+  position: relative;
+  width: 68.4rem;
+  height: 44.8rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  .mask_container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+    border-radius: 16px;
+  }
+
+  .background_container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    mask-image: url('/assets/images/course-mask.png');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url('/assets/images/course-mask.png');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    overflow: hidden;
+
+    .background {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &:hover {
+   .background {
+     transform: scale(1.1);
+   }
+  }
+
+  &_body {
+    padding: 1.6rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .title, .price {
+      font-weight: 600;
+      font-size: 4rem;
+      color: defaults.$c-Primary-2;
+
+      &_disabled {
+        color: defaults.$text-light_disable;
+      }
+    }
+  }
+
+  .level_wrapper {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 21.6rem;
+    height: 5.6rem;
+    border-radius: 1.6rem;
+    background: defaults.$c-BG;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .level_block {
+    width: 21.2rem;
+    padding: 1.2rem 6rem;
+    background-color: defaults.$c-BG;
+    border: 2px solid defaults.$c-G-4;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > span {
+      color: defaults.$c-G-1;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  }
+
+  .coming_soon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //z-index: 10;
+
+    & > span {
+      color: defaults.$c-Primary-2;
+      font-size: 5.2rem;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

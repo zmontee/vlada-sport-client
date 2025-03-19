@@ -1,0 +1,65 @@
+@import "@/styles/defaults.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .label {
+    font-size: 14px;
+    color: $c-G-1;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .input_container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid $c-G-2;
+    border-radius: 12px;
+    padding: 12px;
+    background: $c-BG;
+    transition: border-color 0.2s, background-color 0.2s;
+
+    & > input, & > textarea {
+      border: 0;
+      appearance: none;
+      width: 100%;
+      min-height: 20px;
+      height: 100%;
+      outline: none;
+      font-size: 18px;
+      color: $c-G-1;
+      line-height: 24px;
+      background: transparent;
+
+      &::placeholder {
+        color: #484649;
+        font-size: 18px;
+      }
+    }
+
+    & > textarea {
+      resize: none;
+    }
+
+    &:hover {
+      & > input {
+        color: $c-Primary;
+      }
+    }
+
+    &:focus-within {
+      border-color: $c-Primary;
+    }
+
+    .icon {
+      color: $c-G-2;
+    }
+  }
+
+  &:focus-within .label {
+    color: $c-Primary;
+  }
+}

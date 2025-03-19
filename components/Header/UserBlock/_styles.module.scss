@@ -1,0 +1,15 @@
+@use "@/styles/defaults";
+
+.auth_block {
+  padding: .8rem;
+  background: defaults.$c-Primary-2;
+  border: 2px solid defaults.$c-G-2;
+  border-radius: 4rem;
+  display: flex;
+  gap: .8rem;
+  align-items: center;
+
+  & button {
+    width: 16.8rem;
+  }
+}

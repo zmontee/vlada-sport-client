@@ -1,0 +1,29 @@
+@use '@/styles/defaults';
+
+.courses {
+  margin: 22rem 0;
+  height: 100%;
+
+  &_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+  &_title {
+    color: defaults.$c-G-5;
+    font-size: 5.2rem;
+    font-weight: 500;
+  }
+
+  .all_btn {
+    width: 24rem;
+  }
+
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem 2.4rem;
+  }
+}
