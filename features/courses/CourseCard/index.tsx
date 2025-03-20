@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 type CourseCardProps = {
   title: string;
+  description: string;
   price: number;
   level: string;
   img: string;
@@ -12,6 +13,7 @@ type CourseCardProps = {
 
 const CourseCard: React.FC<CourseCardProps> = ({
   title,
+  description,
   price,
   level,
   img,
@@ -33,19 +35,28 @@ const CourseCard: React.FC<CourseCardProps> = ({
           ) : null}
         </div>
         <div className={styles.card_body}>
-          <div
-            className={clsx(styles.title, {
-              [styles.title_disabled]: !isActive,
-            })}
-          >
-            {title}
+          <div className={styles.card_head}>
+            <div
+              className={clsx(styles.title, {
+                [styles.title_disabled]: !isActive,
+              })}
+            >
+              {title}
+            </div>
+            <div
+              className={clsx(styles.price, {
+                [styles.price_disabled]: !isActive,
+              })}
+            >
+              {price} ₴
+            </div>
           </div>
           <div
-            className={clsx(styles.price, {
-              [styles.price_disabled]: !isActive,
+            className={clsx(styles.description, {
+              [styles.description_disabled]: !isActive,
             })}
           >
-            {price} ₴
+            {description}
           </div>
         </div>
       </div>

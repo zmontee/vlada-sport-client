@@ -1,3 +1,53 @@
+.container {
+  max-width: 190rem;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  z-index: 10;
+  position: relative;
+
+  //@media (max-width: 1439px) {
+  //  padding: 0 3.6rem;
+  //  max-width: 103.2rem;
+  //}
+  //
+  //@media screen and (max-width: 1023px) {
+  //  padding: 0 6.4rem;
+  //  max-width: 76.8rem;
+  //}
+
+  @media screen and (max-width: 767px) {
+    padding: 0 1rem;
+    max-width: 36rem;
+  }
+
+  @media screen and (max-width: 359px) {
+    padding: 0 1rem;
+    max-width: 32rem;
+  }
+}
+
+.page {
+  padding-top: 14rem;
+  width: 100%;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 16px;
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #F4EFF4;
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 6px solid rgba(0, 0, 0, 0);
+    border-right: 5px solid rgba(0, 0, 0, 0);
+  }
+}
+
 .link_icon {
   width: 2rem;
   height: 2rem;

@@ -8,6 +8,9 @@
   &_left {
     width: 100%;
     min-height: 40rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
   }
 
   &_body {
@@ -23,6 +26,7 @@
       width: 100%;
       background: defaults.$c-G-3;
       align-items: center;
+      border-radius: 1.2rem;
 
       &_picture {
         width: 10rem;
@@ -50,6 +54,7 @@
 
       &_experience {
         font-size: 1.8rem;
+        font-weight: 500;
         color: defaults.$text-dark_secondary;
       }
     }
@@ -65,6 +70,7 @@
       color: defaults.$c-Primary-3;
       font-style: italic;
       font-size: 1.8rem;
+      font-weight: 500;
     }
   }
 
@@ -73,7 +79,6 @@
     justify-content: space-between;
     align-items: center;
     gap: 2.4rem;
-    margin-top: 4rem;
 
     & > button {
       width: 100%;

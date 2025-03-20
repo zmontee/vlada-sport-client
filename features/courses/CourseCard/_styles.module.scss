@@ -42,8 +42,13 @@
 
   &:hover {
    .background {
-     transform: scale(1.1);
+     //transform: scale(1.1);
    }
+
+    .description {
+      max-height: 12rem;
+      opacity: 1;
+    }
   }
 
   &_body {
@@ -51,13 +56,39 @@
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1.6rem;
+    transition: transform 0.3s ease;
+
+    .card_head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     .title, .price {
       font-weight: 600;
       font-size: 4rem;
       color: defaults.$c-Primary-2;
+
+      &_disabled {
+        color: defaults.$text-light_disable;
+      }
+    }
+
+    .price {
+      text-align: right;
+    }
+
+    .description {
+      color: defaults.$c-Primary-2;
+      font-size: 1.8rem;
+      font-weight: 500;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
 
       &_disabled {
         color: defaults.$text-light_disable;

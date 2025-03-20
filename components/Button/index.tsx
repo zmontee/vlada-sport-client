@@ -55,6 +55,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             [styles.left_icon]: withIcon && iconPosition === "left",
             [styles.right_icon]: withIcon && iconPosition === "right",
             [styles.secondary]: secondary,
+            [styles.slide_from_left]: iconPosition === "left",
+            [styles.slide_from_right]: iconPosition === "right",
           })}
         >
           {withIcon && iconPosition === "left" ? (
@@ -95,6 +97,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           [styles.right_icon]: withIcon && iconPosition === "right",
           [styles.secondary]: secondary,
           [styles.empty]: empty,
+          [styles.slide_from_left]: iconPosition === "left",
+          [styles.slide_from_right]: iconPosition === "right",
         })}
       >
         {withIcon && iconPosition === "left" ? (

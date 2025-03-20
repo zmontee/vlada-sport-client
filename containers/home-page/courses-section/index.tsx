@@ -28,6 +28,7 @@ const CoursesSection = () => {
             <CourseCard
               key={card.id}
               title={card.title}
+              description={card.description}
               price={card.price}
               level={card.level}
               img={card.img}
