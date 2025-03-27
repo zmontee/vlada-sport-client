@@ -3,6 +3,7 @@ import AboutSection from "@/containers/home-page/about-section";
 import CoursesSection from "@/containers/home-page/courses-section";
 import AdditionalSection from "@/containers/home-page/additional-section";
 import FeedbackSection from "@/containers/home-page/feedback-section";
+import QuestionSection from "@/containers/home-page/question-section";
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       <CoursesSection />
       <AdditionalSection />
       <FeedbackSection />
+      <QuestionSection />
+      <div />
     </main>
   );
 }

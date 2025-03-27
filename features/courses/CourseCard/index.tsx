@@ -60,10 +60,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
           </div>
         </div>
       </div>
-      <div className={styles.level_wrapper}>
-        <div className={styles.level_block}>
-          <span>{level}</span>
-        </div>
+      <div className={styles.level_block}>
+        <span>{level}</span>
       </div>
     </div>
   );

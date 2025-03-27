@@ -1,22 +1,22 @@
 @use '@/styles/defaults';
 
 .feedback_section {
-padding: 22rem 0;
+padding: 220px 0;
 
   .feedback_head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 40px;
 
     .all_btn {
-      width: 24rem;
+      width: 240px;
     }
   }
 
   .feedback_title {
     color: defaults.$text-dark_disable;
-    font-size: 5.2rem;
+    font-size: 52px;
     font-weight: 500;
   }
 }

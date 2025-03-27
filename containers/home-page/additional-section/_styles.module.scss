@@ -1,63 +1,36 @@
 @use "@/styles/defaults";
 
 .additional {
-  padding: 8rem 0;
+  padding: 80px 0;
   background: defaults.$c-G-3;
 
   &_head {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.4rem;
-    margin-bottom: 6.4rem;
+    gap: 24px;
+    margin-bottom: 64px;
   }
 
   &_title {
     color: defaults.$c-Primary-3;
-    font-size: 4rem;
+    font-size: 40px;
     font-weight: 600;
     text-align: center;
   }
 
   &_description {
     color: defaults.$text-dark_secondary;
-    font-size: 1.8rem;
+    font-size: 18px;
     text-align: center;
-    max-width: 80rem;
+    max-width: 800px;
     font-weight: 500;
   }
 
   .additional_list {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 24px;
   }
 
-  &_item {
-    padding: 1.6rem;
-    background: defaults.$c-Primary-2;
-    border: 2px solid defaults.$c-G-2;
-    border-radius: 1.2rem;
-    display: grid;
-    grid-template-columns: 4.6rem 1fr 12rem;
-    align-items: center;
-    gap: 2.4rem;
-
-    .serial {
-      font-size: 3.2rem;
-      width: 100%;
-      font-weight: 500;
-      color: defaults.$text-light_disable;
-    }
-
-    .title, .price {
-      font-size: 3.2rem;
-      width: 100%;
-      color: defaults.$text-dark_secondary;
-    }
-    
-    .price {
-      text-align: right;
-    }
-  }
 }

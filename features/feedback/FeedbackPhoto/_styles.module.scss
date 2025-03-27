@@ -1,8 +1,12 @@
 @use "@/styles/defaults";
 
 .feedback_photo {
-  width: 34rem;
-  height: 40rem;
+  //width: 340px;
+  //height: 400px;
+  width: 23.6vw;
+  max-width: 448px;
+  height: 27.7vw;
+  max-height: 526px;
   position: relative;
 
   .border_img {
@@ -13,15 +17,19 @@
 
     &> img {
       object-fit: contain;
-      width: 100%;
-      height: 100%;
+      width: 23.6vw;
+      max-width: 448px;
+      height: 27.7vw;
+      max-height: 526px;
     }
   }
 
   .mask_container {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 23.6vw;
+    max-width: 448px;
+    height: 27.7vw;
+    max-height: 526px;
 
     .photo_container {
       position: absolute;
@@ -50,19 +58,21 @@
   }
 
   .photo_bange {
-    width: 11.2rem;
-    height: 4.8rem;
+    width: 7.7vw;
+    max-width: 146.3px;
+    height: 3.3vw;
+    max-height: 62.7px;
     position: absolute;
     top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid defaults.$c-G-2;
-    border-radius: 1.2rem;
+    border-radius: 12px;
 
     & > span {
       color: defaults.$text-dark_secondary;
-      font-size: 1.8rem;
+      font-size: 18px;
       font-weight: 500;
       text-align: center;
     }

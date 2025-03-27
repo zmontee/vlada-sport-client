@@ -1,0 +1,24 @@
+.q_form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .q_input {
+    width: 100%;
+  }
+
+  .q_textarea {
+    width: 100%;
+    height: 100%;
+
+    & > div {
+      height: 100%;
+    }
+  }
+
+  .q_submit {
+    width: 100%;
+    min-height: 40px;
+    padding: 8px;
+  }
+}

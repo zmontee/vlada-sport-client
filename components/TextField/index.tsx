@@ -9,7 +9,7 @@ type TextFieldProps = React.HTMLProps<
   HTMLInputElement | HTMLTextAreaElement
 > & {
   title?: string;
-  value: string;
+  value?: string;
   onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   invalid?: boolean;
   required?: boolean;

@@ -1,17 +1,18 @@
 @use "@/styles/defaults";
 
 .button {
-  border-radius: 4rem;
+  border-radius: 40px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .4rem 1.4rem;
+  padding: 4px 14px;
   background: defaults.$c-Primary;
   color: defaults.$c-Primary-2;
-  font-size: 1.8rem;
+  font-size: 18px;
+  line-height: 24px;
   border: 2px solid transparent;
-  height: 4rem;
+  height: 40px;
   overflow: hidden;
   z-index: 1;
 
@@ -27,7 +28,7 @@
     background-color: defaults.$c-Primary-2;
     transition: transform 300ms ease, background-color 300ms ease;
     z-index: -1;
-    border-radius: 4rem;
+    border-radius: 40px;
   }
 
   &.slide_from_left::before {
@@ -73,7 +74,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-    padding: .8rem;
+    padding: 8px;
     background-color: defaults.$c-Primary-2;
 
     transition: background-color 300ms ease;
@@ -85,11 +86,11 @@
 }
 
 .left_icon {
-  padding: 0 1.4rem 0 0;
+  padding: 0 14px 0 0;
 }
 
 .right_icon {
-  padding: 0 0 0 1.4rem;
+  padding: 0 0 0 14px;
 }
 
 .secondary {

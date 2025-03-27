@@ -3,6 +3,7 @@ import { Rubik } from "next/font/google";
 import "@/styles/globals.scss";
 import AuthProvider from "@/components/AuthProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const rubikFont = Rubik({
   variable: "--font-rubik",
@@ -26,6 +27,7 @@ export default function RootLayout({
           {/*<div className="container">*/}
           <Header />
           <div className="page">{children}</div>
+          <Footer />
           {/*</div>*/}
         </AuthProvider>
       </body>

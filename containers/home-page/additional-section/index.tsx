@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./_styles.module.scss";
 import { additionalData } from "@/utils/mockData";
+import ServiceItem from "@/features/services/ServiceItem";
 
 const AdditionalSection: React.FC = () => {
   return (
@@ -18,12 +19,12 @@ const AdditionalSection: React.FC = () => {
           </p>
         </div>
         <div className={styles.additional_list}>
-          {additionalData.map((item) => (
-            <div key={item.id} className={styles.additional_item}>
-              <span className={styles.serial}>0{item.id}</span>
-              <h3 className={styles.title}>{item.title}</h3>
-              <p className={styles.price}>{item.price} ₴</p>
-            </div>
+          {additionalData.map((item, index) => (
+            <ServiceItem
+              key={item.id}
+              service={item}
+              isEven={index % 2 === 0}
+            />
           ))}
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { AdditionalService } from "@/types/courses";
+
 export const coursesCards = [
   {
     id: 1,
@@ -41,30 +43,35 @@ export const coursesCards = [
   },
 ];
 
-export const additionalData = [
+export const additionalData: AdditionalService[] = [
   {
     id: 1,
     title: "Індивідуальні тренування",
     price: 700,
+    img: "/assets/images/additional/additional-1.jpg",
   },
   {
     id: 2,
     title: "Групові тренування",
     price: 300,
+    img: "/assets/images/additional/additional-2.jpg",
   },
   {
     id: 3,
     title: "Розробка індивідуальної програми тренувань",
     price: 2500,
+    img: "/assets/images/additional/additional-3.jpg",
   },
   {
     id: 4,
     title: "Онлайн-консультації",
     price: 500,
+    img: "/assets/images/additional/additional-4.jpg",
   },
   {
     id: 5,
     title: "Фітнес-марафони",
     price: 2000,
+    img: "/assets/images/additional/additional-5.jpg",
   },
 ];

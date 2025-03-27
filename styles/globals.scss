@@ -9,20 +9,20 @@
   color: #000;
 }
 
-html {
-  /* Базовий розмір */
-  font-size: 0.6944444vw;
-
-  /* Мінімальний розмір */
-  @media screen and (max-width: 768px) {
-    font-size: 2.6666666667vw;;
-  }
-
-  /* Максимальний розмір */
-  @media screen and (min-width: 2560px) {
-    font-size: 18px;
-  }
-}
+//html {
+//  /* Базовий розмір */
+//  font-size: 0.6944444vw;
+//
+//  /* Мінімальний розмір */
+//  @media screen and (max-width: 768px) {
+//    font-size: 2.6666666667vw;;
+//  }
+//
+//  /* Максимальний розмір */
+//  @media screen and (min-width: 2560px) {
+//    font-size: 18px;
+//  }
+//}
 
 html,
 body {
@@ -39,7 +39,7 @@ body {
 
 main {
   display: block;
-  min-height: calc(100vh - 14rem);
+  min-height: calc(100vh - 140px);
 }
 
 h1 {

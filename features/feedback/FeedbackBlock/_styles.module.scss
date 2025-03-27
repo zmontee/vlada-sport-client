@@ -3,35 +3,35 @@
 .feedback {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.4rem;
+  gap: 24px;
 
   &_left {
     width: 100%;
-    min-height: 40rem;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 40px;
   }
 
   &_body {
-    padding: 1.6rem;
+    padding: 16px;
     height: 100%;
     width: 100%;
     border: 2px solid defaults.$stroke_default;
-    border-radius: 1.2rem;
+    border-radius: 12px;
 
     .profile {
       display: flex;
-      gap: 1.6rem;
+      gap: 16px;
       width: 100%;
       background: defaults.$c-G-3;
       align-items: center;
-      border-radius: 1.2rem;
+      border-radius: 12px;
 
       &_picture {
-        width: 10rem;
-        height: 10rem;
-        border-radius: 1.2rem;
+        width: 100px;
+        height: 100px;
+        border-radius: 12px;
         overflow: hidden;
 
         & > img {
@@ -43,17 +43,17 @@
       &_info {
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+        gap: 2px;
       }
 
       &_name {
-        font-size: 3.2rem;
+        font-size: 32px;
         font-weight: 500;
         color: defaults.$c-Primary-3;
       }
 
       &_experience {
-        font-size: 1.8rem;
+        font-size: 18px;
         font-weight: 500;
         color: defaults.$text-dark_secondary;
       }
@@ -63,13 +63,13 @@
       width: 100%;
       height: 2px;
       background: defaults.$stroke_default;
-      margin: 1.2rem 0;
+      margin: 12px 0;
     }
 
     .message {
       color: defaults.$c-Primary-3;
       font-style: italic;
-      font-size: 1.8rem;
+      font-size: 18px;
       font-weight: 500;
     }
   }
@@ -78,7 +78,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2.4rem;
+    gap: 24px;
 
     & > button {
       width: 100%;
@@ -90,6 +90,6 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 0.8rem;
+    gap: 8px;
   }
 }

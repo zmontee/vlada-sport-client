@@ -1,0 +1,137 @@
+@use "@/styles/defaults";
+
+.footer {
+  width: calc(100% - 48px);
+  max-width: 1852px;
+  margin: 0 auto 40px;
+
+  border: 1px solid #DDDDDB;
+  border-radius: 40px;
+  padding: 40px;
+
+  .footer_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+  }
+
+  .logo {
+    width: 132px;
+    height: 64px;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .footer_group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+
+    &_header {
+      padding: 8px 20px;
+      border: 2px solid defaults.$green-300;
+      border-radius: 80px;
+      background: defaults.$green-50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_title {
+      font-weight: 400;
+      font-size: 14px;
+      color: defaults.$green-300;
+    }
+
+    &_contacts {
+      .footer_group_header {
+        width: 181px;
+      }
+    }
+
+    &_location {
+      align-items: flex-start;
+      justify-self: end;
+      width: 188px;
+
+      & .footer_group_header {
+        width: 188px;
+      }
+    }
+  }
+
+  &_nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &_link {
+      width: 78px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > span {
+        font-size: 14px;
+        font-weight: 400;
+        color: defaults.$c-Primary-3;
+        transition: color 200ms;
+      }
+
+      &:hover {
+        & > span {
+          color: defaults.$c-Primary;
+        }
+      }
+    }
+  }
+
+  &_contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &_item {
+      font-size: 18px;
+      font-weight: 500;
+      color: defaults.$text-dark_secondary;
+      transition: color 200ms;
+
+      &:hover {
+        color: defaults.$c-Primary;
+      }
+    }
+  }
+
+  &_location {
+    color: defaults.$text-dark_secondary;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+
+  &_divider {
+    height: 2px;
+    width: 100%;
+    background: defaults.$stroke_default;
+    margin: 16px 0;
+  }
+
+  &_bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > h4 {
+      color: defaults.$text-dark_secondary;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+}
