@@ -35,7 +35,7 @@ const HeroSection = () => {
                 >
                   Переглянути курси
                 </Button>
-                <Button secondary className={styles.about_btn}>
+                <Button to="/about" secondary className={styles.about_btn}>
                   Про мене
                 </Button>
               </div>

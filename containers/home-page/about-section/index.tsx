@@ -16,7 +16,9 @@ const AboutSection: React.FC = () => {
               індивідуальності, мотивації та сучасних методах тренувань. Разом
               ми зможемо перетворити ваші мрії в реальні результати!
             </p>
-            <Button className={styles.read_more}>Детальніше</Button>
+            <Button to="/about" className={styles.read_more}>
+              Детальніше
+            </Button>
           </div>
         </div>
         <div className={styles.img_frame}>

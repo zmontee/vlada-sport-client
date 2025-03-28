@@ -15,10 +15,10 @@ const Footer: React.FC = () => {
             <h3 className={styles.footer_group_title}>Меню</h3>
           </div>
           <nav className={styles.footer_nav}>
-            <Link href="#" className={styles.footer_nav_link}>
+            <Link href="/" className={styles.footer_nav_link}>
               <span>Головна</span>
             </Link>
-            <Link href="#" className={styles.footer_nav_link}>
+            <Link href="/about" className={styles.footer_nav_link}>
               <span>Про нас</span>
             </Link>
             <Link href="#" className={styles.footer_nav_link}>
@@ -76,8 +76,7 @@ const Footer: React.FC = () => {
       <hr className={styles.footer_divider} />
       <div className={styles.footer_bottom}>
         <h4>
-          &quot;Vladislava&quot; | {new Date().getFullYear()} | Всі права
-          захищені
+          &quot;Vladislava&quot; | {new Date().getFullYear()} Всі права захищені
         </h4>
         <h4>Created by Denys Koshovoy</h4>
       </div>

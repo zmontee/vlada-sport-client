@@ -10,7 +10,7 @@ const Header = () => {
           <img src="/assets/images/logo.png" alt="Logo" />
         </Link>
         <nav className={styles.navigation}>
-          <Link href="#" className={styles.navigation_item}>
+          <Link href="/about" className={styles.navigation_item}>
             <span>Про нас</span>
           </Link>
           <Link href="#" className={styles.navigation_item}>
