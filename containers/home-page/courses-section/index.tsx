@@ -19,6 +19,7 @@ const CoursesSection = () => {
               />
             }
             className={styles.all_btn}
+            to="/courses"
           >
             Переглянути всі
           </Button>

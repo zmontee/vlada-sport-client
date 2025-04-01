@@ -1,4 +1,128 @@
-import { AdditionalService } from "@/types/courses";
+import { InfoRow, CourseDescriptor } from "@/types/courses";
+
+export const courseFakeInfo: CourseDescriptor = {
+  id: 1,
+  title: "Сила і баланс",
+  mainDescription:
+    "Цей курс ідеально підходить для тих, хто хоче зміцнити своє тіло, поліпшити координацію та знайти внутрішній баланс. Силові вправи в поєднанні з розтяжкою й функціональними тренуваннями допоможуть вам досягти відчуття гармонії та впевненості в собі",
+  additionalDescription:
+    "Цей курс створений для тих, хто прагне досягти видимих результатів у короткі терміни та покращити загальний фізичний стан. Завдяки поєднанню силових і кардіотренувань ви зможете підвищити витривалість, покращити тонус м’язів і відчути справжню енергію вже після кількох тижнів занять",
+  price: 2500,
+  length: "1.5 місяці",
+  level: "Новачок",
+  modulesCount: 5,
+  img: "/assets/images/courses/course-1.jpg",
+  isActive: true,
+  benefits: [
+    {
+      id: 1,
+      img: "/assets/images/courses/benefit-1.png",
+      title: "Результат",
+      description: "Видимі зміни у вашій фізичній формі та самопочутті",
+    },
+    {
+      id: 2,
+      img: "/assets/images/courses/benefit-2.png",
+      title: "Мотивація",
+      description:
+        "Постійна підтримка, що допоможе не зупинятися на шляху до мети",
+    },
+    {
+      id: 3,
+      img: "/assets/images/courses/benefit-3.png",
+      title: "Знання",
+      description:
+        "Правильна техніка виконання вправ та основи здорового способу життя",
+    },
+    {
+      id: 4,
+      img: "/assets/images/courses/benefit-4.png",
+      title: "Енергія",
+      description: "Заряд бадьорості та впевненості після кожного тренування",
+    },
+  ],
+  audience: [
+    "Новачки",
+    "Зайняті люди",
+    "Мотивовані",
+    "Після перерви",
+    "Зміцнення",
+  ],
+  program: [
+    {
+      id: 1,
+      title: "Сила та витривалість",
+      lessonsCount: 6,
+      img: "/assets/images/additional/additional-1.jpg",
+    },
+    {
+      id: 2,
+      title: "Ідеальний старт",
+      lessonsCount: 5,
+      img: "/assets/images/additional/additional-2.jpg",
+    },
+    {
+      id: 3,
+      title: "Рельєф та тонус",
+      lessonsCount: 11,
+      img: "/assets/images/additional/additional-3.jpg",
+    },
+    {
+      id: 4,
+      title: "Баланс і гармонія",
+      lessonsCount: 8,
+      img: "/assets/images/additional/additional-4.jpg",
+    },
+    {
+      id: 5,
+      title: "Марафон енергії",
+      lessonsCount: 9,
+      img: "/assets/images/additional/additional-5.jpg",
+    },
+  ],
+  equipment: [
+    {
+      id: 1,
+      img: "/assets/images/courses/equip-1.png",
+      title: "Гантелі",
+    },
+    {
+      id: 2,
+      img: "/assets/images/courses/equip-2.png",
+      title: "Скакалка",
+    },
+    {
+      id: 3,
+      img: "/assets/images/courses/equip-3.png",
+      title: "Килимок",
+    },
+    {
+      id: 4,
+      img: "/assets/images/courses/equip-4.png",
+      title: "Ролл",
+    },
+  ],
+  feedbacks: [
+    {
+      name: "Яна Лайтер",
+      experience: "2 роки досвіду",
+      message:
+        "З Владою я займаюся вже понад 2 роки, і це були найкращі рішення для мого здоров’я та фізичної форми! Завдяки її професіоналізму та індивідуальному підходу я не лише досяг своїх цілей, а й навчився правильно тренуватися та дбати про своє тіло. Кожне заняття проходить цікаво та мотивуюче, а результати говорять самі за себе. Дякую за підтримку і натхнення!",
+    },
+    {
+      name: "Яна Лайтер",
+      experience: "2 роки досвіду",
+      message:
+        "З Владою я займаюся вже понад 2 роки, і це були найкращі рішення для мого здоров’я та фізичної форми! Завдяки її професіоналізму та індивідуальному підходу я не лише досяг своїх цілей, а й навчився правильно тренуватися та дбати про своє тіло. Кожне заняття проходить цікаво та мотивуюче, а результати говорять самі за себе. Дякую за підтримку і натхнення!",
+    },
+    {
+      name: "Яна Лайтер",
+      experience: "2 роки досвіду",
+      message:
+        "З Владою я займаюся вже понад 2 роки, і це були найкращі рішення для мого здоров’я та фізичної форми! Завдяки її професіоналізму та індивідуальному підходу я не лише досяг своїх цілей, а й навчився правильно тренуватися та дбати про своє тіло. Кожне заняття проходить цікаво та мотивуюче, а результати говорять самі за себе. Дякую за підтримку і натхнення!",
+    },
+  ],
+};
 
 export const coursesCards = [
   {
@@ -43,35 +167,35 @@ export const coursesCards = [
   },
 ];
 
-export const additionalData: AdditionalService[] = [
+export const additionalData: InfoRow[] = [
   {
     id: 1,
     title: "Індивідуальні тренування",
-    price: 700,
+    subtitle: "700 ₴",
     img: "/assets/images/additional/additional-1.jpg",
   },
   {
     id: 2,
     title: "Групові тренування",
-    price: 300,
+    subtitle: "300 ₴",
     img: "/assets/images/additional/additional-2.jpg",
   },
   {
     id: 3,
     title: "Розробка індивідуальної програми тренувань",
-    price: 2500,
+    subtitle: "2500 ₴",
     img: "/assets/images/additional/additional-3.jpg",
   },
   {
     id: 4,
     title: "Онлайн-консультації",
-    price: 500,
+    subtitle: "500 ₴",
     img: "/assets/images/additional/additional-4.jpg",
   },
   {
     id: 5,
     title: "Фітнес-марафони",
-    price: 2000,
+    subtitle: "2000 ₴",
     img: "/assets/images/additional/additional-5.jpg",
   },
 ];

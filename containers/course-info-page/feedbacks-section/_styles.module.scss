@@ -1,0 +1,45 @@
+@use "@/styles/defaults";
+@use "@/styles/mixins";
+@use "@/styles/typography";
+
+.feedbacks {
+  padding: 58px 0;
+  margin-bottom: 220px;
+
+  &_head {
+    @include mixins.flex-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    &_btns {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      .arrow_btn {
+        padding: 0;
+
+        & > div {
+          background-color: transparent;
+        }
+
+        svg path {
+          stroke: defaults.$c-Primary-3;
+        }
+      }
+
+      .write_btn {
+        width: 214px;
+      }
+    }
+  }
+
+  &_title {
+    @include typography.h2;
+  }
+
+  &_list {
+    @include mixins.flex-row;
+    gap: 24px;
+  }
+}

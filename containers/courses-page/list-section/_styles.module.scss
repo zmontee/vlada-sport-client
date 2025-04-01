@@ -1,0 +1,17 @@
+@use "@/styles/defaults";
+@use "@/styles/mixins";
+@use "@/styles/typography";
+
+
+.courses {
+  margin-bottom: 220px;
+
+  &_title {
+    @include typography.h3;
+    margin: 40px 0;
+  }
+
+  &_grid {
+    @include mixins.grid-columns(2, 24px);
+  }
+}

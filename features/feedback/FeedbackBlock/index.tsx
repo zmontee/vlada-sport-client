@@ -3,32 +3,13 @@ import styles from "./_styles.module.scss";
 import { Feedback } from "@/types/feedback";
 import Button from "@/components/Button";
 import FeedbackPhoto from "@/features/feedback/FeedbackPhoto";
+import FeedbackShort from "@/features/feedback/FeedbackShort";
 
-const FeedbackBlock: React.FC<Feedback> = ({
-  // id,
-  name,
-  // profileImg,
-  experience,
-  message,
-  // beforeImg,
-  // afterImg,
-}) => {
+const FeedbackBlock: React.FC<{ feedback: Feedback }> = ({ feedback }) => {
   return (
     <div className={styles.feedback}>
       <div className={styles.feedback_left}>
-        <div className={styles.feedback_body}>
-          <div className={styles.profile}>
-            <div className={styles.profile_picture}>
-              <img src="/assets/images/yana_lighter.png" alt={name} />
-            </div>
-            <div className={styles.profile_info}>
-              <span className={styles.profile_name}>{name}</span>
-              <span className={styles.profile_experience}>{experience}</span>
-            </div>
-          </div>
-          <div className={styles.divider} />
-          <p className={styles.message}>{message}</p>
-        </div>
+        <FeedbackShort feedback={feedback} />
         <div className={styles.feedback_footer}>
           <Button
             className={styles.footer_btn}

@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
             <Link href="/about" className={styles.footer_nav_link}>
               <span>Про нас</span>
             </Link>
-            <Link href="#" className={styles.footer_nav_link}>
+            <Link href="/courses" className={styles.footer_nav_link}>
               <span>Курси</span>
             </Link>
             <Link href="#" className={styles.footer_nav_link}>

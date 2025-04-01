@@ -13,67 +13,6 @@
     gap: 40px;
   }
 
-  &_body {
-    padding: 16px;
-    height: 100%;
-    width: 100%;
-    border: 2px solid defaults.$stroke_default;
-    border-radius: 12px;
-
-    .profile {
-      display: flex;
-      gap: 16px;
-      width: 100%;
-      background: defaults.$c-G-3;
-      align-items: center;
-      border-radius: 12px;
-
-      &_picture {
-        width: 100px;
-        height: 100px;
-        border-radius: 12px;
-        overflow: hidden;
-
-        & > img {
-          object-fit: cover;
-          width: 100%;
-        }
-      }
-
-      &_info {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      &_name {
-        font-size: 32px;
-        font-weight: 500;
-        color: defaults.$c-Primary-3;
-      }
-
-      &_experience {
-        font-size: 18px;
-        font-weight: 500;
-        color: defaults.$text-dark_secondary;
-      }
-    }
-
-    .divider {
-      width: 100%;
-      height: 2px;
-      background: defaults.$stroke_default;
-      margin: 12px 0;
-    }
-
-    .message {
-      color: defaults.$c-Primary-3;
-      font-style: italic;
-      font-size: 18px;
-      font-weight: 500;
-    }
-  }
-
   &_footer {
     display: flex;
     justify-content: space-between;

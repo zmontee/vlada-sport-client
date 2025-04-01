@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./_styles.module.scss";
 import clsx from "clsx";
+import Link from "next/link";
 
 type CourseCardProps = {
   title: string;
@@ -20,7 +21,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
   isActive,
 }) => {
   return (
-    <div className={styles.card}>
+    <Link href="/courses/1" className={styles.card}>
       <div className={styles.mask_container}>
         <div className={styles.background_container}>
           <img
@@ -63,7 +64,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
       <div className={styles.level_block}>
         <span>{level}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 

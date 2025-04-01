@@ -2,13 +2,27 @@ import React from "react";
 import clsx from "clsx";
 import triangle from "@/assets/icons/triangle.svg";
 import link from "@/assets/icons/link.svg";
+import program from "@/assets/icons/program.svg";
+import shoppingCart from "@/assets/icons/shopping-cart.svg";
+import arrowCircleLeft from "@/assets/icons/arrow-circle-left.svg";
+import arrowCircleRight from "@/assets/icons/arrow-circle-right.svg";
 import styles from "./_styles.module.scss";
 
-export type IconName = "triangle" | "link";
+export type IconName =
+  | "triangle"
+  | "link"
+  | "program"
+  | "shoppingCart"
+  | "arrowCircleLeft"
+  | "arrowCircleRight";
 
 const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   triangle,
   link,
+  program,
+  shoppingCart,
+  arrowCircleLeft,
+  arrowCircleRight,
 };
 
 type IconProps = React.SVGProps<SVGSVGElement> & { name: IconName };

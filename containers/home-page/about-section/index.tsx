@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => {
     <section className={styles.about}>
       <div className="container">
         <div className={styles.about_head}>
-          <h2 className={styles.about_title}>Познайомимоя ближче</h2>
+          <h2 className={styles.about_title}>Познайомимоcя ближче</h2>
           <div className={styles.description_block}>
             <p className={styles.about_description}>
               Я — дипломований фітнес-тренер із досвідом роботи, який допомагає

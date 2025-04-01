@@ -1,0 +1,80 @@
+@use "@/styles/defaults";
+@use "@/styles/mixins";
+@use "@/styles/typography";
+
+.about {
+  margin-bottom: 220px;
+
+  &_text {
+    @include typography.h5;
+  }
+
+  &_block {
+    margin-top: 100px;
+
+    &_title {
+      @include typography.h2;
+      margin-bottom: 40px;
+    }
+
+    .benefits {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 24px;
+      position: relative;
+
+      .benefit {
+        @include mixins.flex-column;
+        align-items: center;
+        width: 100%;
+        height: 240px;
+        padding: 24px;
+        border: 2px solid defaults.$stroke_default;
+        border-radius: 24px;
+
+        &_icon {
+          width: 72px;
+          height: 72px;
+          background-color: #D9D9D9;
+          margin-bottom: 40px;
+        }
+        
+        &_title {
+          @include typography.h5;
+          margin-bottom: 16px;
+          text-align: center;
+        }
+
+        &_description {
+          font-weight: 600;
+          font-size: 14px;
+          color: defaults.$text-dark_secondary;
+          text-align: center;
+        }
+      }
+    }
+
+    .audience {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+
+      &_item {
+        border: 2px solid defaults.$stroke_default;
+        border-radius: 12px;
+        padding: 12px;
+        width: 100%;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > span {
+          @include typography.h5;
+          color: defaults.$text-dark_secondary;
+        }
+      }
+    }
+  }
+}

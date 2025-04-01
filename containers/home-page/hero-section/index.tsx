@@ -30,7 +30,7 @@ const HeroSection = () => {
                     />
                   }
                   iconPosition="right"
-                  to="#"
+                  to="/courses"
                   className={styles.courses_btn}
                 >
                   Переглянути курси
@@ -40,19 +40,19 @@ const HeroSection = () => {
                 </Button>
               </div>
             </div>
-            <div className={styles.info_block}>
-              <div className={styles.info_item}>
-                <h2>7+</h2>
-                <span>Років досвіду</span>
-              </div>
-              <div className={styles.info_item}>
-                <h2>100+</h2>
-                <span>Щасливих клієнтів</span>
-              </div>
-              <div className={styles.info_item}>
-                <h2>∞</h2>
-                <span>Уваги до вас</span>
-              </div>
+          </div>
+          <div className={styles.info_block}>
+            <div className={styles.info_item}>
+              <h2>7+</h2>
+              <span>Років досвіду</span>
+            </div>
+            <div className={styles.info_item}>
+              <h2>100+</h2>
+              <span>Щасливих клієнтів</span>
+            </div>
+            <div className={styles.info_item}>
+              <h2>∞</h2>
+              <span>Уваги до вас</span>
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ const Header = () => {
           <Link href="/about" className={styles.navigation_item}>
             <span>Про нас</span>
           </Link>
-          <Link href="#" className={styles.navigation_item}>
+          <Link href="/courses" className={styles.navigation_item}>
             <span>Курси</span>
           </Link>
           <Link href="#" className={styles.navigation_item}>

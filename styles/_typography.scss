@@ -1,0 +1,37 @@
+@use "./defaults";
+
+@mixin h1 {
+  font-size: 64px;
+  font-weight: 600;
+  color: defaults.$text-light_primary;
+}
+
+@mixin h2 {
+  font-size: 52px;
+  font-weight: 500;
+  color: defaults.$text-dark_disable;
+}
+
+@mixin h3 {
+  font-size: 40px;
+  font-weight: 600;
+  color: defaults.$text-dark_disable;
+}
+
+@mixin h4 {
+    font-size: 32px;
+    font-weight: 500;
+    color: defaults.$text-dark_primary;
+}
+
+@mixin h5 {
+  font-size: 26px;
+  font-weight: 500;
+    color: defaults.$text-dark_primary;
+}
+
+@mixin p {
+  font-size: 18px;
+    font-weight: 500;
+  color: defaults.$text-dark_primary;
+}

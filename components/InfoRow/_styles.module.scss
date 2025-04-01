@@ -1,16 +1,16 @@
 @use "@/styles/defaults";
+@use "@/styles/typography";
 
-
-.service_wrapper {
+.info_wrapper {
   position: relative;
 
-  .service_item {
+  .info_item {
     padding: 16px;
     background: defaults.$c-Primary-2;
     border: 2px solid defaults.$c-G-2;
     border-radius: 12px;
     display: grid;
-    grid-template-columns: 46px 1fr 120px;
+    grid-template-columns: 100px auto 1fr;
     align-items: center;
     gap: 24px;
     position: relative;
@@ -20,17 +20,29 @@
       font-size: 32px;
       width: 100%;
       font-weight: 500;
-      color: defaults.$text-light_disable;
+      color: defaults.$text-dark_disable;
     }
 
-    .title, .price {
-      font-size: 32px;
-      width: 100%;
+    .title, .subtitle {
+      @include typography.h4;
       color: defaults.$text-dark_secondary;
     }
 
-    .price {
+    .subtitle {
       text-align: right;
+    }
+
+    &:hover {
+      & ~ .img_block {
+        transform: translate(-50%, calc(-100% - 12px)) rotate(7deg);
+        opacity: 1;
+        width: 180px;
+        height: 220px;
+
+        &_even {
+          transform: translate(-50%, calc(-100% - 12px)) rotate(-7deg);
+        }
+      }
     }
   }
 
@@ -51,19 +63,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-  }
-
-  &:hover {
-    .img_block {
-      transform: translate(-50%, calc(-100% - 12px)) rotate(7deg);
-      opacity: 1;
-      width: 180px;
-      height: 220px;
-
-      &_even {
-        transform: translate(-50%, calc(-100% - 12px)) rotate(-7deg);
-      }
     }
   }
 }
