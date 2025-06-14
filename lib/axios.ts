@@ -84,11 +84,14 @@ axiosPrivate.interceptors.response.use(
 
       try {
         const newAccessToken = await useAuthStore.getState().refreshToken();
-        updateAxiosConfig(newAccessToken);
-        onRefreshed(newAccessToken);
 
-        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-        return await axiosPrivate(originalRequest);
+        if (newAccessToken) {
+          updateAxiosConfig(newAccessToken);
+          onRefreshed(newAccessToken);
+
+          originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+          return await axiosPrivate(originalRequest);
+        }
       } catch (refreshError) {
         await useAuthStore.getState().logout();
         delete axiosPrivate.defaults.headers.common.Authorization;

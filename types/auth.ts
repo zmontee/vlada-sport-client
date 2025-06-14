@@ -57,8 +57,8 @@ export type AuthState = {
   login: (email: string, password: string) => Promise<void>;
   registerUser: (data: RegisterPayload) => Promise<void>;
   logout: () => Promise<void>;
-  refreshToken: () => Promise<string>;
-  getSessionInfo: () => Promise<User>;
+  refreshToken: () => Promise<string | undefined>;
+  getSessionInfo: () => Promise<User | undefined>;
   setAccessToken: (token: string | null) => void;
   setUser: (user: User | null) => void;
 };

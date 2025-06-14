@@ -18,7 +18,10 @@ const ProfileSection = () => {
       if (isAuth) {
         try {
           const courses = await coursesService.getPurchasedCourses();
-          setMyCourses(courses);
+
+          if (courses) {
+            setMyCourses(courses);
+          }
         } catch (error) {
           console.error("Failed to fetch courses", error);
         } finally {

@@ -49,16 +49,19 @@ const useAuthStore = create<AuthState>()((set, get) => ({
 
     try {
       const response = await authService.register(data);
-      const { accessToken, user } = response.data;
 
-      set({
-        user,
-        accessToken,
-        isAuth: true,
-        isLoading: false,
-      });
+      if (response) {
+        const { accessToken, user } = response.data;
 
-      updateAxiosConfig(accessToken);
+        set({
+          user,
+          accessToken,
+          isAuth: true,
+          isLoading: false,
+        });
+
+        updateAxiosConfig(accessToken);
+      }
     } catch (error) {
       set({ isLoading: false });
       throw error;
@@ -79,14 +82,17 @@ const useAuthStore = create<AuthState>()((set, get) => ({
   getSessionInfo: async () => {
     try {
       const response = await authService.getSessionInfo();
-      const user = response.data;
 
-      set({
-        user,
-        isAuth: true,
-      });
+      if (response) {
+        const user = response.data;
 
-      return user;
+        set({
+          user,
+          isAuth: true,
+        });
+
+        return user;
+      }
     } catch (error) {
       set({ user: null, accessToken: null, isAuth: false });
       throw error;
@@ -97,11 +103,15 @@ const useAuthStore = create<AuthState>()((set, get) => ({
     try {
       const response = await authService.refreshToken();
 
-      const { accessToken } = response.data;
-      set({ accessToken });
+      if (response) {
+        const { accessToken } = response.data;
+        set({ accessToken });
 
-      updateAxiosConfig(accessToken);
-      return accessToken;
+        updateAxiosConfig(accessToken);
+        return accessToken;
+      }
+
+      return;
     } catch (error) {
       set({
         isAuth: false,

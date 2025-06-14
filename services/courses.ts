@@ -1,6 +1,7 @@
 import { axiosPrivate, axiosPublic } from "@/lib/axios";
 import { CourseDTO } from "@/types/dto";
 import {
+  CourseDescriptor,
   PurchaseCoursesRequest,
   PurchaseCoursesResponse,
   UserCourseDescriptor,
@@ -28,7 +29,7 @@ const coursesService = {
 
   getCourseById: async (courseId: number) => {
     return withErrorHandling(COURSES_REQUESTS.GET_COURSE_BY_ID, async () => {
-      const courseResponse = await axiosPublic.get<CourseDTO>(
+      const courseResponse = await axiosPublic.get<CourseDescriptor>(
         `/courses/${courseId}`,
       );
       return courseResponse.data;
