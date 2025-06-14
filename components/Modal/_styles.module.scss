@@ -1,0 +1,102 @@
+@use "@/styles/defaults";
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal_content {
+  overflow: auto;
+  max-width: 90vw;
+  width: fit-content;
+  max-height: 90vh;
+  height: fit-content;
+
+  // Default position is center
+  &.position_center {
+    transform: translateY(0);
+  }
+
+  &.position_bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 24px 24px 0 0;
+    animation: slideUp 0.3s forwards;
+
+    &.closing {
+      animation: slideDown 0.3s forwards;
+    }
+  }
+
+  &.position_left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 24px 24px 0;
+    animation: slideRight 0.3s forwards;
+
+    &.closing {
+      animation: slideLeft 0.3s forwards;
+    }
+  }
+
+  &.position_right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 24px 0 0 24px;
+    animation: slideLeft 0.3s forwards;
+
+    &.closing {
+      animation: slideRight 0.3s forwards;
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

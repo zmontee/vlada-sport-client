@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import { AuthResponse, AuthState, RefreshTokensResponse } from "@/types/auth";
-import { axiosPrivate, axiosPublic, updateAxiosConfig } from "@/lib/axios";
+import { AuthState, RegisterPayload } from "@/types/auth";
+import { updateAxiosConfig } from "@/lib/axios";
+import authService from "@/services/auth";
 
 const useAuthStore = create<AuthState>()((set, get) => ({
   user: null,
@@ -20,11 +21,35 @@ const useAuthStore = create<AuthState>()((set, get) => ({
     set({ isLoading: true });
 
     try {
-      const response = await axiosPublic.post<AuthResponse>("/auth/login", {
-        email,
-        password,
+      const response = await authService.login(email, password);
+
+      if (!response) {
+        set({ isLoading: false });
+        throw new Error("Login failed");
+      }
+
+      const { accessToken, user } = response.data;
+
+      set({
+        user,
+        accessToken,
+        isAuth: true,
+        isLoading: false,
       });
-      const { accessToken, user } = response.data.data;
+
+      updateAxiosConfig(accessToken);
+    } catch (error) {
+      set({ isLoading: false });
+      throw error;
+    }
+  },
+
+  registerUser: async (data: RegisterPayload) => {
+    set({ isLoading: true });
+
+    try {
+      const response = await authService.register(data);
+      const { accessToken, user } = response.data;
 
       set({
         user,
@@ -42,7 +67,7 @@ const useAuthStore = create<AuthState>()((set, get) => ({
 
   logout: async () => {
     try {
-      await axiosPrivate.post("/auth/logout");
+      await authService.logout();
     } catch (error) {
       console.error("Logout error:", error);
     } finally {
@@ -51,26 +76,39 @@ const useAuthStore = create<AuthState>()((set, get) => ({
     }
   },
 
+  getSessionInfo: async () => {
+    try {
+      const response = await authService.getSessionInfo();
+      const user = response.data;
+
+      set({
+        user,
+        isAuth: true,
+      });
+
+      return user;
+    } catch (error) {
+      set({ user: null, accessToken: null, isAuth: false });
+      throw error;
+    }
+  },
+
   refreshToken: async () => {
     try {
-      const response = await axiosPublic.post<RefreshTokensResponse>(
-        "/auth/refresh",
-        {},
-        {
-          withCredentials: true,
-        },
-      );
+      const response = await authService.refreshToken();
 
-      const { accessToken } = response.data.data;
+      const { accessToken } = response.data;
       set({ accessToken });
 
+      updateAxiosConfig(accessToken);
       return accessToken;
     } catch (error) {
       set({
+        isAuth: false,
         user: null,
         accessToken: null,
-        isAuth: false,
       });
+      console.error(`REFRESH TOKEN ERROR: ${error}`);
       throw error;
     }
   },

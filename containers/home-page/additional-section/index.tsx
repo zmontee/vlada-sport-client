@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./_styles.module.scss";
-import { additionalData } from "@/utils/mockData";
+import { additionalData } from "@/utils/config";
 import InfoRow from "@/components/InfoRow";
 
 const AdditionalSection: React.FC = () => {
@@ -20,7 +20,7 @@ const AdditionalSection: React.FC = () => {
         </div>
         <div className={styles.additional_list}>
           {additionalData.map((item, index) => (
-            <InfoRow key={item.id} info={item} isEven={index % 2 === 0} />
+            <InfoRow key={item.order} info={item} isEven={index % 2 === 0} />
           ))}
         </div>
       </div>

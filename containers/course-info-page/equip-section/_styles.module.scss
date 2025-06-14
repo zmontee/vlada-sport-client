@@ -11,8 +11,7 @@
   }
 
   &_list {
-    @include mixins.flex-row;
-    gap: 24px;
+    @include mixins.grid-columns(4, 24px);
   }
 
   &_item {

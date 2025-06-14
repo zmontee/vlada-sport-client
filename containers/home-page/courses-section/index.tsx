@@ -1,10 +1,10 @@
 import React from "react";
 import CourseCard from "../../../features/courses/CourseCard";
 import Button from "@/components/Button";
-import { coursesCards } from "@/utils/mockData";
 import styles from "./_styles.module.scss";
+import type { CourseDTO } from "@/types/dto";
 
-const CoursesSection = () => {
+const CoursesSection: React.FC<{ courses: CourseDTO[] }> = ({ courses }) => {
   return (
     <section className={styles.courses}>
       <div className="container">
@@ -25,16 +25,8 @@ const CoursesSection = () => {
           </Button>
         </div>
         <div className={styles.courses_grid}>
-          {coursesCards.map((card) => (
-            <CourseCard
-              key={card.id}
-              title={card.title}
-              description={card.description}
-              price={card.price}
-              level={card.level}
-              img={card.img}
-              isActive={card.isActive}
-            />
+          {courses.slice(0, 3).map((course) => (
+            <CourseCard key={course.id} course={course} isActive={true} />
           ))}
         </div>
       </div>

@@ -30,7 +30,7 @@ const FeedbacksSection: React.FC<{ feedbacks: Feedback[] }> = ({
         </div>
         <div className={styles.feedbacks_list}>
           {feedbacks.slice(0, 3).map((feedback) => (
-            <FeedbackShort key={feedback.name} feedback={feedback} />
+            <FeedbackShort key={feedback.id} feedback={feedback} />
           ))}
         </div>
       </div>

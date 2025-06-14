@@ -12,6 +12,7 @@ type ButtonProps = React.DetailedHTMLProps<
   secondary?: boolean;
   empty?: boolean;
   icon?: IconName;
+  iconOnly?: boolean;
   iconNode?: React.ReactNode;
   iconPosition?: "left" | "right";
   iconClassName?: string;
@@ -30,6 +31,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       secondary = false,
       empty = false,
       icon = null,
+      iconOnly = false,
       iconNode = null,
       iconPosition = "right",
       iconClassName,
@@ -52,6 +54,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           ref={ref}
           className={clsx(styles.button, className, {
             [styles.with_icon]: withIcon,
+            [styles.icon_only]: iconOnly || (withIcon && !children),
             [styles.left_icon]: withIcon && iconPosition === "left",
             [styles.right_icon]: withIcon && iconPosition === "right",
             [styles.secondary]: secondary,
@@ -93,6 +96,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         type={type}
         className={clsx(styles.button, className, {
           [styles.with_icon]: withIcon,
+          [styles.icon_only]: iconOnly || (withIcon && !children),
           [styles.left_icon]: withIcon && iconPosition === "left",
           [styles.right_icon]: withIcon && iconPosition === "right",
           [styles.secondary]: secondary,

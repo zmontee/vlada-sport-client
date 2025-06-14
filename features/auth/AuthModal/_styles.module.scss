@@ -1,0 +1,63 @@
+@use "@/styles/defaults";
+@use "@/styles/typography";
+
+.auth {
+  &_title {
+    @include typography.h5;
+    color: defaults.$text-dark_secondary;
+    margin-bottom: 16px;
+  }
+
+  &_description {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: defaults.$text-dark_secondary;
+  }
+
+  .auth_form {
+    margin-top: 40px;
+
+    .fields_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+
+      .auth_input {
+        width: 100%;
+      }
+    }
+
+    .submit_wrapper {
+      margin-top: 24px;
+
+      & > button {
+        width: 100%;
+      }
+    }
+  }
+  
+  .register {
+    margin-top: 184px;
+    width: 100%;
+    border: 2px solid defaults.$c-Primary-2;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    
+    &_description {
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: defaults.$text-dark_secondary;
+    }
+
+    &_btn {
+      width: 100%;
+    }
+  }
+}

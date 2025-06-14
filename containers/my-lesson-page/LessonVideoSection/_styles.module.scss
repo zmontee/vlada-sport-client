@@ -1,0 +1,47 @@
+@use "@/styles/defaults";
+@use "@/styles/typography";
+
+.video_section {
+  margin-bottom: 100px;
+
+  .video_head {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .lesson_name {
+      @include typography.h3;
+    }
+  }
+
+  .video_container {
+    height: 100%;
+    min-height: 500px;
+    max-height: 1000px;
+    width: 100%;
+    border: 2px solid defaults.$c-G-2;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .lessons_switch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+
+    .prev_btn {
+      order: 1;
+      width: 246px;
+    }
+
+    .next_btn {
+      order: 2;
+      width: 246px;
+      justify-self: flex-end;
+    }
+  }
+}

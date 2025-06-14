@@ -4,13 +4,16 @@ import CoursesSection from "@/containers/home-page/courses-section";
 import AdditionalSection from "@/containers/home-page/additional-section";
 import FeedbackSection from "@/containers/home-page/feedback-section";
 import QuestionSection from "@/containers/home-page/question-section";
+import coursesService from "@/services/courses";
 
-export default function Home() {
+export default async function Home() {
+  const coursesList = await coursesService.getCourses();
+
   return (
     <main>
       <HeroSection />
       <AboutSection />
-      <CoursesSection />
+      {coursesList && <CoursesSection courses={coursesList} />}
       <AdditionalSection />
       <FeedbackSection />
       <QuestionSection />

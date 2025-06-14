@@ -1,6 +1,6 @@
 @use "@/styles/defaults";
 
-.auth_block {
+.user_block {
   padding: 8px;
   background: transparent;
   border: 2px solid defaults.$c-G-2;
@@ -9,7 +9,42 @@
   gap: 8px;
   align-items: center;
 
-  & button {
+  .auth_btn {
     width: 168px;
+  }
+
+  &_auth {
+    gap: 32px;
+  }
+
+  .profile_btn {
+    width: 246px;
+  }
+
+  .cart_wrapper {
+    position: relative;
+
+    .cart_btn {
+      svg path {
+        stroke: defaults.$c-Primary-3;
+      }
+    }
+
+    .count {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      border-radius: 100%;
+      background: defaults.$c-Primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      color: defaults.$c-Primary-2;
+      z-index: 10;
+    }
   }
 }

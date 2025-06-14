@@ -1,0 +1,52 @@
+@use "@/styles/defaults";
+@use "@/styles/typography";
+
+.congrats {
+  width: 800px;
+  height: 466px;
+  border-radius: 12px;
+  position: relative;
+  background: defaults.$c-BG;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .confetti {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  &_body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &_text {
+    max-width: 608px;
+  }
+
+  &_title {
+    @include typography.h5;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &_message {
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    max-width: 558px;
+  }
+
+  &_btn {
+    width: 199px;
+    margin: 0 auto;
+  }
+}

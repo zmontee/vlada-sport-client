@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
-import "@/styles/_globals.scss";
 import AuthProvider from "@/components/AuthProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Modal } from "@/components/Modal";
+import "@/styles/_globals.scss";
 
 const rubikFont = Rubik({
   variable: "--font-rubik",
@@ -21,14 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={rubikFont.variable}>
+    <html lang="en">
+      <body className={rubikFont.variable} suppressHydrationWarning>
         <AuthProvider>
-          {/*<div className="container">*/}
           <Header />
           <div className="page">{children}</div>
           <Footer />
-          {/*</div>*/}
+          <Modal />
         </AuthProvider>
       </body>
     </html>

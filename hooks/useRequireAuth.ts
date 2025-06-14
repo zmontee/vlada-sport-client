@@ -1,16 +1,32 @@
-import useAuthStore from "@/store/authStore";
+"use client";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import useAuthStore from "@/store/authStore";
 
 export const useRequireAuth = () => {
   const router = useRouter();
-  const { isAuth, isLoading } = useAuthStore();
+  const { isAuth, isLoading, refreshToken, getSessionInfo } = useAuthStore();
+  const [isAuthChecking, setIsAuthChecking] = useState(true);
 
   useEffect(() => {
-    if (!isLoading && !isAuth) {
-      router.replace("/login");
-    }
-  }, [isAuth, isLoading, router]);
+    const checkAuth = async () => {
+      setIsAuthChecking(true);
+      try {
+        await refreshToken();
+        await getSessionInfo();
+      } catch (error) {
+        router.replace("/auth");
+      } finally {
+        setIsAuthChecking(false);
+      }
+    };
 
-  return { isAuth, isLoading };
+    if (!isAuth && !isLoading) {
+      checkAuth();
+    } else {
+      setIsAuthChecking(false);
+    }
+  }, [isAuth, isLoading, refreshToken, getSessionInfo, router]);
+
+  return { isAuth, isLoading: isLoading || isAuthChecking };
 };

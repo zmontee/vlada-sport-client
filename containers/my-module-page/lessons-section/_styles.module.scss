@@ -1,0 +1,17 @@
+@use "@/styles/typography";
+
+.lessons {
+  width: 100%;
+  margin-bottom: 100px;
+
+  &_title {
+    @include typography.h2;
+    margin-bottom: 32px;
+  }
+
+  &_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 32px 24px;
+  }
+}

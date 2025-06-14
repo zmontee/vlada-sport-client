@@ -3,7 +3,10 @@ import { Feedback } from "@/types/feedback";
 import styles from "./_styles.module.scss";
 
 const FeedbackShort: React.FC<{ feedback: Feedback }> = ({
-  feedback: { name, experience, message },
+  feedback: {
+    user: { name, experience },
+    comment,
+  },
 }) => {
   return (
     <div className={styles.feedback_body}>
@@ -17,7 +20,7 @@ const FeedbackShort: React.FC<{ feedback: Feedback }> = ({
         </div>
       </div>
       <div className={styles.divider} />
-      <p className={styles.message}>{message}</p>
+      <p className={styles.message}>{comment}</p>
     </div>
   );
 };

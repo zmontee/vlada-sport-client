@@ -1,9 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import useAuthStore from "@/store/authStore";
 
-const BASE_URL = process.env.NEXT_APP_API_URL || "http://localhost:2999";
-
-console.log("BASE_URL", BASE_URL);
+export const BASE_URL = process.env.NEXT_APP_API_URL || "http://localhost:2999";
 
 export const axiosPublic = axios.create({
   baseURL: BASE_URL,
@@ -40,6 +38,16 @@ const onRefreshed = (token: string) => {
   refreshSubscribers = [];
 };
 
+axiosPrivate.interceptors.request.use((config) => {
+  const token = useAuthStore.getState().accessToken;
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
+
 axiosPrivate.interceptors.response.use((config) => {
   const token = useAuthStore.getState().accessToken;
 
@@ -57,7 +65,11 @@ axiosPrivate.interceptors.response.use(
       _retry?: boolean;
     };
 
-    if (error.response?.status === 401 && !originalRequest?._retry) {
+    if (
+      error.response?.status === 401 &&
+      !originalRequest?._retry &&
+      useAuthStore.getState().accessToken !== null
+    ) {
       if (isRefreshing) {
         return new Promise((resolve) => {
           subscribeTokenRefresh((token) => {
@@ -78,9 +90,13 @@ axiosPrivate.interceptors.response.use(
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return await axiosPrivate(originalRequest);
       } catch (refreshError) {
-        useAuthStore.getState().logout();
+        await useAuthStore.getState().logout();
         delete axiosPrivate.defaults.headers.common.Authorization;
-        return Promise.reject(refreshError);
+        throw new Error(
+          refreshError instanceof Error
+            ? refreshError.message
+            : "Token refresh failed",
+        );
       } finally {
         isRefreshing = false;
       }

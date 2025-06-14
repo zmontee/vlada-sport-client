@@ -1,37 +1,70 @@
+"use client";
+
 import React from "react";
 import styles from "./_styles.module.scss";
-import { pluralize } from "@/utils/functions";
+import { getCDNUrl, pluralize } from "@/utils/functions";
 import Button from "@/components/Button";
+import { useCartStore } from "@/store/cartStore";
+import useAuthStore from "@/store/authStore";
+import { useRouter } from "next/navigation";
 
 type CourseHeroSectionProps = {
-  img: string;
+  id: number;
+  imageUrl?: string;
   title: string;
-  mainDescription: string;
-  length: string;
+  description: string;
+  duration: string;
   modulesCount: number;
   level: string;
   price: number;
 };
 
 const CourseHeroSection: React.FC<CourseHeroSectionProps> = ({
-  img,
+  id,
+  imageUrl,
   title,
-  mainDescription,
-  length,
+  description,
+  duration,
   modulesCount,
   level,
   price,
 }) => {
+  const router = useRouter();
+
+  const { isAuth } = useAuthStore();
+  const { addItem } = useCartStore();
+
+  const handleAddToCart = () => {
+    if (isAuth) {
+      addItem({
+        id,
+        title,
+        img: imageUrl,
+        price,
+      });
+    } else {
+      router.push("/auth");
+    }
+  };
+
   return (
     <section className={styles.hero}>
       <div className="container">
         <div className={styles.hero_block}>
-          <img className={styles.hero_background} src={img} alt={title} />
+          <img
+            className={styles.hero_background}
+            src={
+              imageUrl
+                ? getCDNUrl(imageUrl)
+                : "/assets/images/courses/course-4.jpg"
+            }
+            alt={title}
+          />
           <div className={styles.hero_content}>
             <h1 className={styles.hero_title}>{title}</h1>
-            <p className={styles.hero_description}>{mainDescription}</p>
+            <p className={styles.hero_description}>{description}</p>
             <div className={styles.hero_shorts}>
-              {length} • {modulesCount}{" "}
+              {duration} •{" "}
               {pluralize(modulesCount, ["модуль", "модулі", "модулі"])} •{" "}
               {level}
             </div>
@@ -43,7 +76,9 @@ const CourseHeroSection: React.FC<CourseHeroSectionProps> = ({
               <Button secondary icon="program">
                 Програма курсу
               </Button>
-              <Button icon="shoppingCart">Придбати</Button>
+              <Button icon="shoppingCart" onClick={handleAddToCart}>
+                Придбати
+              </Button>
             </div>
           </div>
         </div>

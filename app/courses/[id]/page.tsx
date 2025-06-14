@@ -1,6 +1,4 @@
 import React from "react";
-import { courseFakeInfo } from "@/utils/mockData";
-import { CourseDescriptor } from "@/types/courses";
 import HeroSection from "@/containers/course-info-page/hero-section";
 import CourseAboutSection from "@/containers/course-info-page/about-section";
 import ProgramSection from "@/containers/course-info-page/program-section";
@@ -8,33 +6,40 @@ import EquipSection from "@/containers/course-info-page/equip-section";
 import FeedbacksSection from "@/containers/course-info-page/feedbacks-section";
 import QuestionSection from "@/containers/home-page/question-section";
 import CourseBadge from "@/features/courses/CourseBadge";
+import coursesService from "@/services/courses";
 
-const CourseInfoPage = async ({ params }) => {
-  const courseInfo: CourseDescriptor = await new Promise((resolve) => {
-    resolve(courseFakeInfo);
-  });
+const CourseInfoPage: React.FC<{ params: { id: number } }> = async ({
+  params,
+}) => {
+  const courseInfo = await coursesService.getCourseById(params.id);
+
+  if (!courseInfo) {
+    return <h2>Course not found</h2>;
+  }
 
   return (
     <main>
       <HeroSection
-        img={courseInfo.img}
+        id={courseInfo.id}
+        imageUrl={courseInfo.imageUrl}
         title={courseInfo.title}
-        mainDescription={courseInfo.mainDescription}
-        length={courseInfo.length}
-        modulesCount={courseInfo.modulesCount}
+        description={courseInfo.description}
+        duration={courseInfo.duration}
+        modulesCount={courseInfo.modules.length}
         level={courseInfo.level}
         price={courseInfo.price}
       />
       <CourseAboutSection
         benefits={courseInfo.benefits}
-        audience={courseInfo.audience}
+        targetAudience={courseInfo.targetAudience}
       />
-      <ProgramSection program={courseInfo.program} />
+      <ProgramSection program={courseInfo.modules} />
       <EquipSection equip={courseInfo.equipment} />
-      <FeedbacksSection feedbacks={courseInfo.feedbacks} />
+      <FeedbacksSection feedbacks={courseInfo.reviews} />
       <QuestionSection />
       <CourseBadge
-        img={courseInfo.img}
+        id={courseInfo.id}
+        img={courseInfo.imageUrl}
         title={courseInfo.title}
         price={courseInfo.price}
       />

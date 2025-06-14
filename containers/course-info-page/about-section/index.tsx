@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./_styles.module.scss";
-import { Benefit } from "@/types/courses";
+import type { BenefitDTO } from "@/types/dto";
 
 const CourseAboutSection: React.FC<{
-  benefits: Benefit[];
-  audience: string[];
-}> = ({ benefits, audience }) => {
+  benefits: BenefitDTO[];
+  targetAudience: string[];
+}> = ({ benefits, targetAudience }) => {
   return (
     <section className={styles.about}>
       <div className="container">
@@ -24,7 +24,7 @@ const CourseAboutSection: React.FC<{
             {benefits.map((benefit) => (
               <div className={styles.benefit} key={benefit.id}>
                 <div className={styles.benefit_icon} />
-                <h5 className={styles.benefit_title}>{benefit.title}</h5>
+                <h5 className={styles.benefit_title}>{benefit.name}</h5>
                 <p className={styles.benefit_description}>
                   {benefit.description}
                 </p>
@@ -35,7 +35,7 @@ const CourseAboutSection: React.FC<{
         <div className={styles.about_block}>
           <h2 className={styles.about_block_title}>Кому стане в пригоді</h2>
           <div className={styles.audience}>
-            {audience.map((item) => (
+            {targetAudience.map((item) => (
               <div key={item} className={styles.audience_item}>
                 <span>{item}</span>
               </div>

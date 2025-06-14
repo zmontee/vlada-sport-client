@@ -2,6 +2,7 @@ import React from "react";
 import type { Program } from "@/types/courses";
 import styles from "./_styles.module.scss";
 import InfoRow from "@/components/InfoRow";
+import { getCDNUrl } from "@/utils/functions";
 
 const ProgramSection: React.FC<{ program: Program[] }> = ({ program }) => {
   return (
@@ -13,22 +14,15 @@ const ProgramSection: React.FC<{ program: Program[] }> = ({ program }) => {
             <InfoRow
               key={item.id}
               info={{
-                id: item.id,
+                order: item.orderIndex,
                 title: item.title,
-                subtitle: `${item.lessonsCount} занять`,
-                img: item.img,
+                subtitle: `${item._count.lessons} занять`,
+                img: item.imageUrl
+                  ? getCDNUrl(item.imageUrl)
+                  : "/assets/images/courses/course-4.jpg",
               }}
               isEven={index % 2 === 0}
             />
-            // <div key={item.id} className={styles.program_item}>
-            //   <span className={styles.program_item_number}>
-            //     {`${index + 1 <= 10 ? "0" : ""}${index + 1}`}
-            //   </span>
-            //   <h4 className={styles.program_item_title}>{item.title}</h4>
-            //   <p className={styles.program_item_count}>
-            //     {item.lessonsCount} занять
-            //   </p>
-            // </div>
           ))}
         </div>
       </div>

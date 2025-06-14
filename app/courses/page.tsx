@@ -1,11 +1,12 @@
 import React from "react";
 import CoursesListSection from "@/containers/courses-page/list-section";
+import coursesService from "@/services/courses";
 
-const CoursesPage = () => {
+const CoursesPage = async () => {
+  const coursesList = await coursesService.getCourses();
+
   return (
-    <main>
-      <CoursesListSection />
-    </main>
+    <main>{coursesList && <CoursesListSection list={coursesList} />}</main>
   );
 };
 

@@ -5,16 +5,24 @@ import TextField from "@/components/TextField";
 import Button from "@/components/Button";
 import useAuthStore from "@/store/authStore";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, refreshToken } = useAuthStore();
+  const router = useRouter();
+  const { login } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await login(email, password);
+    try {
+      await login(email, password);
+
+      router.replace("/");
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (
@@ -49,7 +57,7 @@ const AuthForm = () => {
       </div>
       <div className={styles.registration_wrapper}>
         <h3>Ще немає профіля?</h3>
-        <Button secondary onClick={refreshToken}>
+        <Button secondary to="/auth/register" className={styles.register_btn}>
           Реєстрація
         </Button>
       </div>

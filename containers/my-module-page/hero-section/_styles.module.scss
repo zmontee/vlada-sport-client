@@ -1,0 +1,27 @@
+@use "@/styles/defaults";
+@use "@/styles/typography";
+
+.hero {
+  margin-bottom: 100px;
+
+  &_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  &_title {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    & > h3 {
+      @include typography.h3;
+    }
+  }
+
+  .complete_btn {
+    width: 246px
+  }
+}

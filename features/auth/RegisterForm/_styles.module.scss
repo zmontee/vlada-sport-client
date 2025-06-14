@@ -1,0 +1,85 @@
+@use "@/styles/defaults";
+@use "@/styles/mixins";
+@use "@/styles/typography";
+
+.register_form {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  &_title {
+    @include typography.h4;
+    color: defaults.$text-dark_secondary;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  &_description {
+    @include typography.p;
+    text-align: center;
+    margin-bottom: 32px;
+    color: defaults.$text-dark_secondary;
+  }
+
+  &_body {
+    .fields_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+
+      .field {
+        &_label {
+          color: defaults.$c-Primary;
+          font-size: 14px;
+          font-weight: 400;
+          margin-bottom: 16px;
+          display: block;
+        }
+
+        .radio_group {
+          display: flex;
+          gap: 12px;
+        }
+
+        .error_message {
+          color: defaults.$c-Danger;
+          font-weight: 400;
+          font-size: 14px;
+            margin-top: 4px;
+        }
+      }
+    }
+
+    .submit_btn {
+      width: 100%;
+      margin-top: 24px;
+    }
+  }
+
+  &_second {
+    .fields_wrapper {
+      gap: 16px;
+    }
+  }
+}
+
+.login_wrapper {
+  border: 2px solid defaults.$c-Primary-2;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  & > h3 {
+    color: defaults.$c-G-1;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 auto;
+  }
+
+  .login_btn {
+    width: 100%;
+  }
+}

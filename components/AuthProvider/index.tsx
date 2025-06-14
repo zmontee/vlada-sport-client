@@ -8,13 +8,13 @@ export default function AuthProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const { refreshToken } = useAuthStore();
+  const { refreshToken, getSessionInfo } = useAuthStore();
 
   useEffect(() => {
     const initAuth = async () => {
       try {
-        console.log("trying to refresh token");
         await refreshToken();
+        await getSessionInfo();
       } catch (error) {
         console.error("Initiating auth-page check failed:", error);
       }

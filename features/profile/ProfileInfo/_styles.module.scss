@@ -1,0 +1,88 @@
+@use "@/styles/defaults";
+@use "@/styles/typography";
+
+.profile_info {
+  padding: 16px;
+  background: defaults.$c-Primary-2;
+    border: 2px solid defaults.$c-G-2;
+  border-radius: 24px;
+  overflow: hidden;
+  height: fit-content;
+
+  &_avatar {
+    height: 194px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid defaults.$c-G-2;
+
+    .avatar_wrapper {
+      width: 144px;
+      height: 144px;
+      border: 2px solid defaults.$c-G-2;
+      border-radius: 24px;
+      overflow: hidden;
+
+      .avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .upload_btn {
+      border: none;
+      background: transparent;
+      padding: 0;
+      color: defaults.$text-dark_primary;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s;
+
+      &:hover {
+        color: defaults.$c-Primary;
+      }
+    }
+  }
+
+  &_body {
+    padding: 16px 0;
+    border-bottom: 2px solid defaults.$c-G-2;
+  }
+
+  &_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &_title {
+    @include typography.p;
+    color: defaults.$text-dark_disable;
+  }
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+
+  &_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_label, &_value {
+    @include typography.p;
+    color: defaults.$text-dark_primary;
+  }
+
+  &_security {
+    padding-top: 16px;
+  }
+}

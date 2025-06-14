@@ -14,7 +14,8 @@ type TextFieldProps = React.HTMLProps<
   invalid?: boolean;
   required?: boolean;
   placeholder?: string;
-  type?: "text" | "password" | "mobile" | "textarea";
+  error?: string;
+  type?: "text" | "number" | "password" | "mobile" | "textarea";
 };
 
 const TextField: React.FC<TextFieldProps> = ({
@@ -26,6 +27,7 @@ const TextField: React.FC<TextFieldProps> = ({
   type,
   invalid,
   className,
+  error,
   ...rest
 }) => {
   const uniqueId = useId();
@@ -72,6 +74,9 @@ const TextField: React.FC<TextFieldProps> = ({
           />
         )}
       </div>
+      {invalid && error ? (
+        <span className={styles.error_msg}>{error}</span>
+      ) : null}
     </div>
   );
 };

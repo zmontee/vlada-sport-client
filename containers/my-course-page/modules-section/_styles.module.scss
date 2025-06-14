@@ -1,0 +1,17 @@
+@use "@/styles/typography";
+
+.modules {
+  width: 100%;
+  margin: 100px 0;
+
+  &_title {
+    @include typography.h2;
+    margin-bottom: 32px;
+  }
+
+  &_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 32px 24px;
+  }
+}

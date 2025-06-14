@@ -1,9 +1,10 @@
-export type Feedback = {
-  // id: number;
-  name: string;
-  // profileImg: string;
-  experience: string;
-  message: string;
-  // beforeImg: string;
-  // afterImg: string;
+import { ReviewDTO } from "@/types/dto";
+
+export type Feedback = ReviewDTO & {
+  user: {
+    name: string;
+    surname: string;
+    imageUrl: string;
+    experience: string;
+  };
 };

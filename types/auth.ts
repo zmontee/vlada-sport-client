@@ -29,16 +29,24 @@ export type User = {
 };
 
 export type AuthResponse = {
-  message: string;
-  data: {
-    user: User;
-    accessToken: string;
-  };
+  user: User;
+  accessToken: string;
 };
 
 export type RefreshTokensResponse = {
-  status: string;
-  data: { accessToken: string };
+  accessToken: string;
+};
+
+export type GetSessionInfoResponse = User;
+
+export type RegisterPayload = {
+  email: string;
+  password: string;
+  name: string;
+  surname: string;
+  sex: string;
+  birthDate: string;
+  experience: string;
 };
 
 export type AuthState = {
@@ -47,8 +55,10 @@ export type AuthState = {
   isAuth: boolean;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
+  registerUser: (data: RegisterPayload) => Promise<void>;
   logout: () => Promise<void>;
   refreshToken: () => Promise<string>;
+  getSessionInfo: () => Promise<User>;
   setAccessToken: (token: string | null) => void;
   setUser: (user: User | null) => void;
 };
