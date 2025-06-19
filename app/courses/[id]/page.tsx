@@ -13,6 +13,8 @@ const CourseInfoPage = async ({ params }) => {
 
   const courseInfo = await coursesService.getCourseById(id);
 
+  console.log("course info:", courseInfo);
+
   if (!courseInfo) {
     return <h2>Course not found</h2>;
   }

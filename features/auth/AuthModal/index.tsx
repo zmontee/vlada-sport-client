@@ -5,9 +5,11 @@ import { useModal } from "@/hooks/useModal";
 import useAuthStore from "@/store/authStore";
 import TextField from "@/components/TextField";
 import Button from "@/components/Button";
+import { useRouter } from "next/navigation";
 
 const AuthModal: React.FC = () => {
-  const { openModal, closeModal } = useModal();
+  const router = useRouter();
+  const { closeModal } = useModal();
 
   const { login } = useAuthStore();
 
@@ -19,9 +21,15 @@ const AuthModal: React.FC = () => {
 
     try {
       await login(email, password);
+      closeModal();
     } catch (error) {
       console.error("Login error:", error);
     }
+  };
+
+  const handleRegister = () => {
+    router.push("/auth/register");
+    closeModal();
   };
 
   return (
@@ -64,7 +72,11 @@ const AuthModal: React.FC = () => {
           <span className={styles.register_description}>
             Ще не має профіля?
           </span>
-          <Button secondary to="/auth/register" className={styles.register_btn}>
+          <Button
+            secondary
+            onClick={handleRegister}
+            className={styles.register_btn}
+          >
             Реєстрація
           </Button>
         </div>

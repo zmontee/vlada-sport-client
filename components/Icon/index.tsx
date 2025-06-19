@@ -10,6 +10,7 @@ import edit from "@/assets/icons/edit.svg";
 import trash from "@/assets/icons/trash.svg";
 import lock from "@/assets/icons/lock.svg";
 import closeCircle from "@/assets/icons/close-circle.svg";
+import logout from "@/assets/icons/logout.svg";
 import styles from "./_styles.module.scss";
 
 export type IconName =
@@ -22,7 +23,8 @@ export type IconName =
   | "edit"
   | "trash"
   | "lock"
-  | "closeCircle";
+  | "closeCircle"
+  | "logout";
 
 const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   triangle,
@@ -35,6 +37,7 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   trash,
   lock,
   closeCircle,
+  logout,
 };
 
 type IconProps = React.SVGProps<SVGSVGElement> & { name: IconName };

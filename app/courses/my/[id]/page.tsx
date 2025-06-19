@@ -7,6 +7,7 @@ import HeroSection from "@/containers/my-course-page/hero-section";
 import ModulesSection from "@/containers/my-course-page/modules-section";
 import EquipSection from "@/containers/course-info-page/equip-section";
 import FeedbacksSection from "@/containers/course-info-page/feedbacks-section";
+import PrivateRoute from "@/components/PrivateRoute";
 
 const MyCoursePage: React.FC<{ params: Promise<{ id: string }> }> = ({
   params,
@@ -18,7 +19,6 @@ const MyCoursePage: React.FC<{ params: Promise<{ id: string }> }> = ({
 
   useEffect(() => {
     const fetchMyCourse = async () => {
-      console.log("id:", courseId);
       if (isAuth && !isNaN(courseId)) {
         try {
           const courseInfo = await coursesService.getUserCourseById(courseId);
@@ -40,18 +40,20 @@ const MyCoursePage: React.FC<{ params: Promise<{ id: string }> }> = ({
   }, [isAuth, courseId]);
 
   return (
-    myCourse && (
-      <main>
-        <HeroSection
-          progress={myCourse.progress}
-          courseDescription={myCourse.description}
-          courseImg={myCourse.imageUrl}
-        />
-        <ModulesSection modules={myCourse.modules} />
-        <EquipSection equip={myCourse.equipment} />
-        <FeedbacksSection feedbacks={myCourse.reviews} />
-      </main>
-    )
+    <PrivateRoute>
+      {myCourse && (
+        <main>
+          <HeroSection
+            progress={myCourse.progress}
+            courseDescription={myCourse.description}
+            courseImg={myCourse.imageUrl}
+          />
+          <ModulesSection modules={myCourse.modules} />
+          <EquipSection equip={myCourse.equipment} />
+          <FeedbacksSection feedbacks={myCourse.reviews} />
+        </main>
+      )}
+    </PrivateRoute>
   );
 };
 

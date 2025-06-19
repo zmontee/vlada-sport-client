@@ -1,16 +1,33 @@
+"use client";
 import React from "react";
 import styles from "./_styles.module.scss";
 import Button from "@/components/Button";
-import { redirect } from "next/navigation";
-import { getCDNUrl } from "@/utils/functions";
+import { useRouter } from "next/navigation";
 import QuoteBadge from "@/features/courses/QuoteBadge";
+import progressService from "@/services/progress";
 
 const MyModuleHeroSection: React.FC<{
   courseId: number;
+  moduleId: number;
+  isCompleted: boolean;
   moduleName: string;
   moduleImg?: string;
   description: string;
-}> = ({ courseId, moduleName, moduleImg, description }) => {
+}> = ({
+  courseId,
+  moduleId,
+  isCompleted,
+  moduleName,
+  moduleImg,
+  description,
+}) => {
+  const router = useRouter();
+
+  const handleCompleteModule = async () => {
+    await progressService.completeModule(moduleId);
+    router.replace(`/courses/my/${courseId}`);
+  };
+
   return (
     <section className={styles.hero}>
       <div className="container">
@@ -20,12 +37,19 @@ const MyModuleHeroSection: React.FC<{
               secondary
               icon="arrowCircleLeft"
               onClick={() => {
-                redirect(`/courses/my/${courseId}`);
+                router.replace(`/courses/my/${courseId}`);
               }}
             />
             <h3>{moduleName}</h3>
           </div>
-          <Button className={styles.complete_btn}>Завершити модуль</Button>
+          {!isCompleted && (
+            <Button
+              className={styles.complete_btn}
+              onClick={handleCompleteModule}
+            >
+              Завершити модуль
+            </Button>
+          )}
         </div>
         <QuoteBadge quote={description} img={moduleImg} />
       </div>

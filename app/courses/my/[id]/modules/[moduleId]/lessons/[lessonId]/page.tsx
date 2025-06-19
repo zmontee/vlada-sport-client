@@ -6,6 +6,7 @@ import type { UserLessonDescriptor } from "@/types/courses";
 import LessonVideoSection from "@/containers/my-lesson-page/LessonVideoSection";
 import QuoteBadge from "@/features/courses/QuoteBadge";
 import EquipSection from "@/containers/course-info-page/equip-section";
+import PrivateRoute from "@/components/PrivateRoute";
 
 const MyLessonPage: React.FC<{
   params: Promise<{ id: string; moduleId: string; lessonId: string }>;
@@ -42,19 +43,21 @@ const MyLessonPage: React.FC<{
   }, [isAuth, lessonId]);
 
   return (
-    <main>
-      {!!myLesson && (
-        <>
-          <LessonVideoSection
-            lesson={myLesson}
-            courseId={courseId}
-            moduleId={moduleId}
-          />
-          <QuoteBadge quote={myLesson.description} img={myLesson.imageUrl} />
-          <EquipSection equip={myLesson.equipment} marginTop="100px" />
-        </>
-      )}
-    </main>
+    <PrivateRoute>
+      <main>
+        {!!myLesson && (
+          <>
+            <LessonVideoSection
+              lesson={myLesson}
+              courseId={courseId}
+              moduleId={moduleId}
+            />
+            <QuoteBadge quote={myLesson.description} img={myLesson.imageUrl} />
+            <EquipSection equip={myLesson.equipment} marginTop="100px" />
+          </>
+        )}
+      </main>
+    </PrivateRoute>
   );
 };
 

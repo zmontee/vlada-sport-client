@@ -6,6 +6,7 @@ import MyModuleHeroSection from "@/containers/my-module-page/hero-section";
 import LessonsSection from "@/containers/my-module-page/lessons-section";
 import EquipSection from "@/containers/course-info-page/equip-section";
 import type { UserModuleDescriptor } from "@/types/courses";
+import PrivateRoute from "@/components/PrivateRoute";
 
 const MyModulePage: React.FC<{
   params: Promise<{ id: string; moduleId: string }>;
@@ -40,21 +41,25 @@ const MyModulePage: React.FC<{
   }, [isAuth, moduleId]);
 
   return (
-    myModule && (
-      <main>
-        <MyModuleHeroSection
-          courseId={myModule.courseId}
-          moduleName={myModule.title}
-          moduleImg={myModule.imageUrl}
-          description={myModule.description}
-        />
-        <LessonsSection
-          lessons={myModule.lessons}
-          courseId={myModule.courseId}
-        />
-        <EquipSection equip={myModule.equipment} />
-      </main>
-    )
+    <PrivateRoute>
+      {myModule && (
+        <main>
+          <MyModuleHeroSection
+            courseId={myModule.courseId}
+            moduleId={myModule.id}
+            isCompleted={myModule.progress.isCompleted}
+            moduleName={myModule.title}
+            moduleImg={myModule.imageUrl}
+            description={myModule.description}
+          />
+          <LessonsSection
+            lessons={myModule.lessons}
+            courseId={myModule.courseId}
+          />
+          <EquipSection equip={myModule.equipment} />
+        </main>
+      )}
+    </PrivateRoute>
   );
 };
 

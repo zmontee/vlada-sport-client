@@ -1,11 +1,22 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
 
-const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const { isLoading, isAuth } = useRequireAuth();
+const PrivateRoute: React.FC<{
+  children: React.ReactNode;
+  redirectPath?: string;
+}> = ({ children, redirectPath = "/auth" }) => {
+  const router = useRouter();
+  const { isLoading, isAuth } = useRequireAuth(redirectPath);
+
+  useEffect(() => {
+    console.log("isLoading: ", isLoading);
+    if (!isLoading && !isAuth) {
+      console.log("Redirecting to: ", redirectPath);
+      router.replace(redirectPath);
+    }
+  }, [isLoading, isAuth, router, redirectPath]);
 
   if (isLoading) {
     return (

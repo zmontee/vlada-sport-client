@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
-import { BASE_URL } from "@/lib/axios";
 import Button from "@/components/Button";
 import { SEX_MAP } from "@/utils/constants";
 import useAuthStore from "@/store/authStore";
+import { UserSex } from "@/types/auth";
 import styles from "./_styles.module.scss";
 import { useModal } from "@/hooks/useModal";
+import { getCDNUrl } from "@/utils/functions";
 
 const ProfileInfo: React.FC = () => {
-  const { user } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const { openModal } = useModal();
 
   if (!user) {
@@ -29,12 +30,20 @@ const ProfileInfo: React.FC = () => {
     );
   };
 
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <div className={styles.profile_info}>
       <div className={styles.profile_info_avatar}>
         <div className={styles.avatar_wrapper}>
           <img
-            src={`${BASE_URL}${user.imageUrl ? (user.imageUrl?.startsWith("/") ? user.imageUrl : "/" + user.imageUrl) : "/cdn/images/default-avatar.jpg"}`}
+            src={
+              user.imageUrl
+                ? getCDNUrl(user.imageUrl)
+                : `/assets/images/${user.sex === UserSex.MALE ? "boy-default.png" : "girl-default.png"}`
+            }
             alt="Avatar"
             className={styles.avatar}
           />
@@ -91,6 +100,14 @@ const ProfileInfo: React.FC = () => {
           </div>
         </div>
       </div>
+      <Button
+        secondary
+        icon="logout"
+        className={styles.logout_btn}
+        onClick={handleLogout}
+      >
+        Вийти
+      </Button>
     </div>
   );
 };

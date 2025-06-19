@@ -10,7 +10,25 @@ const LessonCard: React.FC<{
   lesson: UserModuleLesson;
   isLocked: boolean;
 }> = ({ courseId, lesson, isLocked }) => {
-  return (
+  return isLocked ? (
+    <div className={styles.lesson}>
+      <div className={styles.lesson_img}>
+        <img
+          src={
+            lesson.imageUrl
+              ? getCDNUrl(lesson.imageUrl)
+              : "/assets/courses/course-3.jpg"
+          }
+          alt={lesson.title}
+        />
+        <div className={styles.lesson_lock}>
+          <Icon name="lock" className={styles.lesson_lock_icon} />
+          <span>Для доступу до цього уроку пройдіть попередній урок</span>
+        </div>
+      </div>
+      <span className={styles.lesson_name}>{lesson.title}</span>
+    </div>
+  ) : (
     <Link
       href={`/courses/my/${courseId}/modules/${lesson.moduleId}/lessons/${lesson.id}`}
     >
@@ -24,12 +42,6 @@ const LessonCard: React.FC<{
             }
             alt={lesson.title}
           />
-          {isLocked && (
-            <div className={styles.lesson_lock}>
-              <Icon name="lock" className={styles.lesson_lock_icon} />
-              <span>Для доступу до цього уроку пройдіть попередній урок</span>
-            </div>
-          )}
         </div>
         <span className={styles.lesson_name}>{lesson.title}</span>
       </div>

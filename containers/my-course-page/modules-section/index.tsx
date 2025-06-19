@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./_styles.module.scss";
 import ModuleCard from "@/features/courses/ModuleCard";
 import { UserCourseModule } from "@/types/courses";
+import styles from "./_styles.module.scss";
 
 const ModulesSection: React.FC<{ modules: UserCourseModule[] }> = ({
   modules,

@@ -59,7 +59,7 @@
     @include mixins.flex-between;
     gap: 32px;
 
-    & > button {
+    & button, a {
       width: 100%;
     }
   }

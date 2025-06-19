@@ -31,7 +31,7 @@ const CourseHeroSection: React.FC<CourseHeroSectionProps> = ({
 }) => {
   const router = useRouter();
 
-  const { isAuth } = useAuthStore();
+  const { isAuth, user } = useAuthStore();
   const { addItem } = useCartStore();
 
   const handleAddToCart = () => {
@@ -76,9 +76,15 @@ const CourseHeroSection: React.FC<CourseHeroSectionProps> = ({
               <Button secondary icon="program">
                 Програма курсу
               </Button>
-              <Button icon="shoppingCart" onClick={handleAddToCart}>
-                Придбати
-              </Button>
+              {user?.purchasedCourses.includes(id) ? (
+                <Button icon="arrowCircleRight" to={`/courses/my/${id}`}>
+                  До курсу
+                </Button>
+              ) : (
+                <Button icon="shoppingCart" onClick={handleAddToCart}>
+                  Придбати
+                </Button>
+              )}
             </div>
           </div>
         </div>

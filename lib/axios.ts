@@ -95,6 +95,11 @@ axiosPrivate.interceptors.response.use(
       } catch (refreshError) {
         await useAuthStore.getState().logout();
         delete axiosPrivate.defaults.headers.common.Authorization;
+
+        if (typeof window !== "undefined") {
+          window.location.href = "/auth";
+        }
+
         throw new Error(
           refreshError instanceof Error
             ? refreshError.message
@@ -104,6 +109,11 @@ axiosPrivate.interceptors.response.use(
         isRefreshing = false;
       }
     }
+
+    // if (error.response?.status === 401 && typeof window !== "undefined") {
+    //   useAuthStore.getState().logout();
+    //   window.location.href = "/auth";
+    // }
 
     return Promise.reject(error);
   },
